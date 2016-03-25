@@ -107,15 +107,15 @@
                     <Button x:Name="RevealMapButton" Content="Reveal map" HorizontalAlignment="Left" Margin="10,54,0,0" VerticalAlignment="Top" Width="75" Click="RevealMapButton_Click"/>
                     <Button x:Name="RevealOreButton" Content="Reveal ore" HorizontalAlignment="Left" Margin="90,54,0,0" VerticalAlignment="Top" Width="75" Click="RevealOreButton_Click"/>
                     <Button x:Name="ExpandOreButton" Content="Expand ore" HorizontalAlignment="Left" Margin="170,54,0,0" VerticalAlignment="Top" Width="75" Click="ExpandOreButton_Click"/>
-                    <GroupBox Header="Create items" HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.033,-4.906" Height="198" Width="235">
-                        <Grid Margin="0,0,0,0">
-                            <Label Content="Material" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
-                            <ComboBox x:Name="MaterialList" HorizontalAlignment="Left" Margin="68,45,0,0" VerticalAlignment="Top" Width="120" DisplayMemberPath="Name" SelectionChanged="MaterialList_SelectionChanged"/>
-                            <Label Content="Item" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top"/>
-                            <ComboBox x:Name="ItemList" HorizontalAlignment="Left" Margin="68,76,0,0" VerticalAlignment="Top" Width="120" DisplayMemberPath="Name"/>
-                            <Label Content="Amount" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top"/>
-                            <TextBox x:Name="ItemAmount" HorizontalAlignment="Left" Height="23" Margin="68,106,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="40"/>
-                            <Button x:Name="AddItemButton" Content="Add item(s)" HorizontalAlignment="Left" Margin="113,143,0,0" VerticalAlignment="Top" Width="75" Click="AddItemButton_Click"/>
+                    <GroupBox Header="Create items" HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.033,-4.906" Height="116" Width="235">
+                        <Grid>
+                            <Label Content="Material" HorizontalAlignment="Left" Margin="19,5,0,0" VerticalAlignment="Top"/>
+                            <ComboBox x:Name="MaterialList" HorizontalAlignment="Left" Margin="77,9,0,0" VerticalAlignment="Top" Width="136" DisplayMemberPath="Name" SelectionChanged="MaterialList_SelectionChanged"/>
+                            <Label Content="Item" HorizontalAlignment="Left" Margin="19,36,0,0" VerticalAlignment="Top"/>
+                            <ComboBox x:Name="ItemList" HorizontalAlignment="Left" Margin="77,40,0,0" VerticalAlignment="Top" Width="136" DisplayMemberPath="Name"/>
+                            <Label Content="Amount" HorizontalAlignment="Left" Margin="19,67,0,0" VerticalAlignment="Top"/>
+                            <TextBox x:Name="ItemAmount" HorizontalAlignment="Left" Height="23" Margin="77,70,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="40"/>
+                            <Button x:Name="AddItemButton" Content="Add item(s)" HorizontalAlignment="Left" Margin="138,69,0,0" VerticalAlignment="Top" Width="75" Click="AddItemButton_Click"/>
                         </Grid>
                     </GroupBox>
                     <Button x:Name="IrrigateButton" Content="Irrigate underground farms" HorizontalAlignment="Left" Margin="305,54,0,0" VerticalAlignment="Top" Width="157" Click="IrrigateButton_Click"/>
@@ -147,7 +147,20 @@
                     <ScrollViewer Margin="13,312,10,10">
                         <TextBlock x:Name="StatusBlock" Margin="0,0,0,0" TextWrapping="Wrap" HorizontalAlignment="Left" Width="auto"/>
                     </ScrollViewer>
-                    <Button x:Name="FixGhostItemsButton" Content="Fix unusable ghost items" HorizontalAlignment="Left" Margin="13,284,0,0" VerticalAlignment="Top" Width="152" ToolTip="Try to fix the problem where items stored in a deconstructed crate are bugged and unusable\r\nThe crate must be deconstructed from its stockpile first. If not possible you have to remove the stockpile." Click="FixGhostItems_Click"/>
+                    <Button x:Name="FixGhostItemsButton" Content="Fix unusable ghost items" HorizontalAlignment="Left" Margin="252,285,0,0" VerticalAlignment="Top" Width="152" ToolTip="Try to fix the problem where items stored in a deconstructed crate are bugged and unusable\r\nThe crate must be deconstructed from its stockpile first. If not possible you have to remove the stockpile." Click="FixGhostItems_Click"/>
+                    <GroupBox x:Name="groupBox" Header="Add a Merchant Camp" HorizontalAlignment="Left" Height="105" Margin="10,202,0,0" VerticalAlignment="Top" Width="235">
+                        <Button x:Name="AddMerchantButton" Content="Add" HorizontalAlignment="Left" Margin="166,59,0,0" VerticalAlignment="Top" Width="45" ToolTip="" Click="add_faction" RenderTransformOrigin="-0.178,0.619"/>
+                    </GroupBox>
+                    <ComboBox x:Name="cobCamp" HorizontalAlignment="Left" Height="22" Margin="81,221,0,0" VerticalAlignment="Top" Width="146">
+                        <ComboBoxItem Content="General merchant"/>
+                        <ComboBoxItem Content="Mining colony"/>
+                        <ComboBoxItem Content="Lumber camp"/>
+                        <ComboBoxItem Content="Agricultural"/>
+                    </ComboBox>
+                    <Label x:Name="label" Content="Camp" HorizontalAlignment="Left" Margin="21,218,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="label1" Content="Dist. (days)" HorizontalAlignment="Left" Margin="22,247,0,0" VerticalAlignment="Top"/>
+                    <Slider x:Name="slider" HorizontalAlignment="Left" Margin="114,250,0,0" VerticalAlignment="Top" Width="113" SelectionEnd="6" SelectionStart="1" Value="3" Maximum="6" Minimum="1" AutoToolTipPlacement="TopLeft"/>
+                    <Label x:Name="lDistCamp" Content="3" HorizontalAlignment="Left" Margin="86,248,0,0" VerticalAlignment="Top"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="GnomesTab" Header="Gnomes" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="57">

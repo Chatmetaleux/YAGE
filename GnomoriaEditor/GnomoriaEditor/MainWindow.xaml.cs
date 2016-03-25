@@ -44,6 +44,7 @@ namespace GnomoriaEditor
                 AddItemButton.IsEnabled = value;
                 IrrigateButton.IsEnabled = value;
                 FixGhostItemsButton.IsEnabled = value;
+                AddMerchantButton.IsEnabled = value;
                 gameloaded = value;
             }
         }
@@ -78,6 +79,8 @@ namespace GnomoriaEditor
             ItemList.SelectedIndex = 145;
             MaterialList.SelectedIndex = 59;
             //QualityList.SelectedIndex = 5;
+            cobCamp.SelectedIndex = 0;
+            slider.ValueChanged += new RoutedPropertyChangedEventHandler<double>(slider_camp_changed);
         }
 
         private static void InitializeGnomoria()
@@ -728,6 +731,25 @@ namespace GnomoriaEditor
             }
             AddStatusText(string.Format("Done. {0} piles/container fixed.", cnt));
         }
+
+        private void slider_camp_changed(object sender, EventArgs e)
+        {
+            lDistCamp.Content = Math.Round(slider.Value,1).ToString();
+        }
+
+        private void add_faction(object sender, EventArgs e)
+        {
+            if (cobCamp.SelectedIndex == -1) return;
+
+            string[] defs = { "MerchantCityState","MiningColony", "LumberCamp", "AgriculturalSettlement" };
+            FactionDef def = GnomanEmpire.Instance.GameDefs.FactionDefs[defs[cobCamp.SelectedIndex]];
+            Faction f = new Faction(def,null , (float)slider.Value);
+
+            AddStatusText(cobCamp.Text + " " + f.Name + " added." );
+
+            GnomanEmpire.Instance.World.AIDirector.AddFaction(f);
+        }
+
     }
 
 
